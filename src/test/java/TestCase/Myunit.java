@@ -9,7 +9,7 @@ import page.MainPage;
 import java.io.FileNotFoundException;
 import java.net.MalformedURLException;
 
-import static core.CommonFunApp.startApp;
+
 
 /** @author YGan */
 public class Myunit extends MainPage {
@@ -22,7 +22,7 @@ public class Myunit extends MainPage {
   public void setUp() throws FileNotFoundException,MalformedURLException{
 
 
-    startApp();
+    driver.startApp();
   }
 
   @AfterTest

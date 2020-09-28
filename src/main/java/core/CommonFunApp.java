@@ -37,26 +37,26 @@ public class CommonFunApp {
 
 
 
-    public static AndroidDriver<MobileElement> startApp() throws FileNotFoundException, MalformedURLException {
+    public  AndroidDriver<MobileElement> startApp() throws FileNotFoundException, MalformedURLException {
 
 
         Yaml yaml = new Yaml();
         File yamlFile = new File("src/main/java/data/360_rent_APK_caps.yaml");
         Map<String, String> data = (Map<String, String>) yaml.load(new FileInputStream(yamlFile));
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-        desiredCapabilities.setCapability("platformName", data.get("platformName").toString());
-        desiredCapabilities.setCapability("platformVersion", data.get("platformVersion").toString());
-        desiredCapabilities.setCapability("deviceName", data.get("deviceName").toString());
-        desiredCapabilities.setCapability("appname", data.get("appname").toString());
-        desiredCapabilities.setCapability("app", data.get("app").toString());
-        desiredCapabilities.setCapability("noReset", data.get("noReset").toString());
-        desiredCapabilities.setCapability("unicodeKeyboard", data.get("unicodeKeyboard").toString());
-        desiredCapabilities.setCapability("resetKeyboard", data.get("resetKeyboard").toString());
-        desiredCapabilities.setCapability("appPackage", data.get("appPackage").toString());
-        desiredCapabilities.setCapability("appActivity", data.get("appActivity").toString());
+        desiredCapabilities.setCapability("platformName", data.get("platformName"));
+        desiredCapabilities.setCapability("platformVersion", data.get("platformVersion"));
+        desiredCapabilities.setCapability("deviceName", data.get("deviceName"));
+        desiredCapabilities.setCapability("appname", data.get("appname"));
+        desiredCapabilities.setCapability("app", data.get("app"));
+        desiredCapabilities.setCapability("noReset", data.get("noReset"));
+        desiredCapabilities.setCapability("unicodeKeyboard", data.get("unicodeKeyboard"));
+        desiredCapabilities.setCapability("resetKeyboard", data.get("resetKeyboard"));
+        desiredCapabilities.setCapability("appPackage", data.get("appPackage"));
+        desiredCapabilities.setCapability("appActivity", data.get("appActivity"));
         driver =
                 new AndroidDriver(
-                        new URL("http://" + data.get("ip").toString() + ":" + data.get("port").toString() + "/wd/hub"),
+                        new URL("http://" + data.get("ip") + ":" + data.get("port") + "/wd/hub"),
                         desiredCapabilities);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
        return driver;
